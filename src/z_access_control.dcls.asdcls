@@ -1,0 +1,14 @@
+@EndUserText.label: 'Test Access Control'
+@MappingRole: true
+define role Z_ACCESS_CONTROL {
+    grant
+        select
+            on
+                Z_TEST_ACCESS_CONTROL
+                    where
+                        if ( $parameters.teste = 'X' )
+                        then 
+                          { agency_id = '070046' }
+                        else 
+                          { agency_id = '070007' };
+}
